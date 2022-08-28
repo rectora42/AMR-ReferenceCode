@@ -22,7 +22,7 @@ header-includes:
   #- \usepackage{changepage} 
   - \usepackage{scrextend}
 fontsize: 9pt
-
+linkcolor: blue
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
@@ -217,4 +217,4 @@ Tortolero, G. A., Otto, M. O., Ramphul, R., Yamal, J. M., **Rector, A.**, Brown,
 \emph{References available upon request}
 \end{small}
 # Acknowledgements  
-This CV was created using R version 4.2.1 with RStudio and adapted style documents from the R package *vitae*. Associated code can be found in my github repository, [AMR-CV]().
+This CV was created using R version 4.2.1 with RStudio and adapted style documents from the R package *vitae*. Associated code can be found in my github repository([github.com/rectora42/AMR-ReferenceCode/tree/master/00-AMR-CV](https://github.com/rectora42/AMR-ReferenceCode/tree/master/00-AMR-CV)).
