@@ -3,7 +3,7 @@
 name: Alison M.
 surname: Rector
 position: " RESEARCH ASSISTANT and PH.D. CANDIDATE - BIOSTATISTICS AND DATA SCIENCE"
-aboutme: As a Ph.D. student with expertise in Biostatistics and Data Science, I have a strong ability to adapt and learn in a variety of settings to streamline data analysis and reporting. I have over 6 years of experience in statistical and data analysis. I enjoy working independently and collaborating with colleagues to troubleshoot and resolve complex issues with research, design, and implementation that propel projects to fruition.
+aboutme: As a Ph.D. candidate with expertise in Biostatistics and Data Science, I have a strong ability to adapt and learn in a variety of settings to streamline data analysis and reporting. I have over 6 years of experience in statistical and data analysis. I enjoy working independently and collaborating with colleagues to troubleshoot and resolve complex issues with research, design, and implementation that propel projects to fruition.
 address: "Buda, TX"
 phone: +1 281 814 5755
 #www: mariecurie.com
