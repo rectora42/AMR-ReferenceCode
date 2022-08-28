@@ -1,0 +1,11 @@
+---
+title: "Simulating Data"
+author: "Alison Rector"
+date: "2022-08-22"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+

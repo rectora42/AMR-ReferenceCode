@@ -1,0 +1,220 @@
+---
+
+name: Alison M.
+surname: Rector
+position: " RESEARCH ASSISTANT and PH.D. CANDIDATE - BIOSTATISTICS AND DATA SCIENCE"
+aboutme: As a Ph.D. student with expertise in Biostatistics and Data Science, I have a strong ability to adapt and learn in a variety of settings to streamline data analysis and reporting. I have over 6 years of experience in statistical and data analysis. I enjoy working independently and collaborating with colleagues to troubleshoot and resolve complex issues with research, design, and implementation that propel projects to fruition.
+address: "Buda, TX"
+phone: +1 281 814 5755
+#www: mariecurie.com
+email: "rectora42@gmail.com"
+#twitter: mariecurie
+github: rectora42
+linkedin: alison-rector
+headcolor: 2A67E0
+date: "`r format(Sys.time(), '%B %Y')`"
+output: 
+  vitae::awesomecv
+
+header-includes:
+  - \geometry{left=1cm,right=1cm,top=1.2cm,bottom=1.2cm}
+ # - \definecolor{headcolor}{2A67E0}
+  #- \usepackage{changepage} 
+  - \usepackage{scrextend}
+fontsize: 9pt
+
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tidyr)
+library(dplyr)
+library(readr)
+library(glue)
+library(tibble)
+library(lubridate)
+library(here)
+library(scales)
+
+library(tidyverse)
+#library(googlesheets4)
+library(gsheet)
+library(readxl)
+```
+
+# Core Competencies  
+\begin{scriptsize}
+\begin{center}
+• Statistical Analysis • Spatio-temporal Models • Predictive Modeling • Advanced Data Visualization • Model Evaluation • Data Management • EHR Data •  \linebreak 
+\smallskip  
+• R • RStudio • Git • GitHub • Python • SQL • PostgreSQL • INLA  • SAS • Stata • \linebreak 
+\smallskip  
+• Strategic Planning • Technical Leadership • Communication • Adaptability • Ability to Learn • Dissemination of Knowledge • \linebreak 
+\end{center}
+\end{scriptsize}
+<!-- • Instructional Design • Education • Canvas  -->
+# Education  
+
+```{r education}
+#read in education history and use vitae::etailed_entries to format output
+read_xlsx("./AlisonRector_ResumeStuff.xlsx", sheet="Education")%>%
+  vitae::detailed_entries(what = Degree,
+                          when = Year,
+                          where = Location, 
+                          with = Institution, 
+                          why = Details)
+```
+
+# Selected Graduate Coursework  
+```{r}
+# Read in Coursework - or enter manually depending on desired format 
+# read_xlsx("AlisonRector_ResumeStuff.xlsx", sheet="Courses")%>%
+# vitae::brief_entries(what=Course)
+```
+\begin{scriptsize}
+\emph{full transcript available upon request}
+\begin{center}
+• Machine Learning in Practice • Practical Python Programming/Algorithms and Data Analysis • Fundamentals of Data Analytics and Prediction • \linebreak 
+\smallskip  
+• Linear Models • Generalized Linear Models • Stochastic Processes for Biostatisticians • Spatio-Temporal Analysis • 
+\end{center}
+\end{scriptsize}
+<!-- • Probability and Distribution Theory • Statistical Inference • Stochastic Processes for Biostatisticians • Linear Models • Generalized Linear Models • Fundamentals of Data Analytics and Prediction • Practical Python Programing/Algorithms and Data Analysis • Machine Learning in Practice • Categorical Data Analysis • Epidemiology I, II, and III • Applied Linear Regression • Applied Multivariate Analysis for Biostatistics  •  Survival Analysis  •  Large Sample Theory  •  Introduction to Data Science  •  Data Science Computing  •  Spatio-Temporal Analysis  •  Statistical Method in Clinical Trials  •  -->
+
+
+# Selected Research Experience 
+
+```{r}
+#read in research experience
+read_xlsx("./AlisonRector_ResumeStuff.xlsx", sheet="Research2")%>%
+  #filter to 'Research Assistant' - this is so we can add detailed sub headers under 
+  # 'Graduate Research Assistant' experience
+  dplyr::filter(Title=="Research Assistant")%>%
+    #nest details 1-3 columns into single tibble list 
+  # NOTE: if details are different lengths for each entry
+        # filter to each 'Title' in desired order and repeat this chunk
+        # nesting only the appropriate number of 'Details*' columns
+        # if you don't do this, a bullet will appear with 'NA' 
+        # for entries with fewer than max details
+  nest(Details=c(Details1, Details2, Details3))%>%
+  vitae::detailed_entries(what = Institution,
+                          when = Year,
+                          where = Location,
+                          with = Title,
+                          why = Details)
+
+```
+
+```{r}
+#read in Research experience
+read_xlsx("./AlisonRector_ResumeStuff.xlsx", sheet="Research2")%>%
+  #filter to 'Graduate Research Assistant' 
+ dplyr::filter(Title=="Graduate Research Assistant" )%>%
+  # omit 'Details' from deatiled_entry - will add project specific details below
+vitae::detailed_entries(what= Institution, 
+                     with = Title,
+                     where = Location,
+                     when = Year)
+```
+
+```{r uthgra}
+#read in GRA at UTH project specific details to appear as subsections below 'Graduate Resarch Assistant'
+# this is to highlight the multiple overlapping projects I worked on simultaneously
+read_xlsx("./AlisonRector_ResumeStuff.xlsx", sheet="UTHGRA")%>%
+  nest(Details=c(Details1, Details2, Details3))%>%
+  vitae::detailed_entries(what = Project,
+                          #when = Year,
+                          why = Details)
+```
+
+```{r}
+#names(temp_research)
+#read in research experience
+read_xlsx("./AlisonRector_ResumeStuff.xlsx", sheet="Research2")%>%
+  #filter out research experience already detailed (GRA, RA and TA)
+  dplyr::filter(Title!="Graduate Research Assistant")%>%
+  dplyr::filter(Title!="Research Assistant")%>%
+  dplyr::filter(Title!="Graduate Teaching Assistant")%>%
+  nest(Details=c(Details1, Details2, Details3))%>%
+  vitae::detailed_entries(what = Institution,
+                          when = Year,
+                          where = Location,
+                          with = Title,
+                          why = Details)
+
+```
+
+
+# Selected Work Experience  
+```{r}
+#read in non research related work experience
+read_xlsx("./AlisonRector_ResumeStuff.xlsx", sheet="Work")%>%
+  vitae::detailed_entries(what = Title,
+                          when = Year,
+                          where = Location, 
+                          with = Employer, 
+                          why = Details)
+```
+
+
+# Publications and Presentations  
+
+
+```{r eval=FALSE, include=FALSE, results='asis'}
+## Can use this chunk to review publications - formatting looks nicer using PubMed 'cite' feature and copying citation
+
+# library(RefManageR)
+# my_pubs <- RefManageR::ReadBib("AlisonRector_Publications_Works.bib")
+# NoCite(my_pubs)
+# PrintBibliography(my_pubs, .opts = list(
+#   sorting = "ydnt",
+#   style = "markdown",
+#   bib.style = "authoryear"
+# ))
+
+```
+**Rector, A.**, Whitworth, K. W., Iñiguez, C., Chauhan, S., Guxens, M., Ibarluzea, J., Ish, J.,  Symanski, E.,  Swartz, M. D. (2021). Knot placement in the Distributed Lag Nonlinear Models framework. In: *33rd Annual Conference of the International Society for Environmental Epidemiology*
+
+\smallskip  
+
+Whitworth, K. W., **Rector, A.**, Ish, J., Chauhan, S., Ibarluzea, J., Guxens, M., Swartz, M. D., Symanski, E., & Iñiguez, C. (2022). Identifying Sensitive Windows of Exposure to NO2 and Fetal Growth Trajectories in a Spanish Birth Cohort. Epidemiology (Cambridge, Mass.), 33(3), 318–324. https://doi.org/10.1097/EDE.0000000000001468
+
+\smallskip  
+
+Yamal, J. M., Appana, S., Wang, M., Leon-Novelo, L., Bakota, E., Ye, Y., Sharma, S., Morrison, A. C., Marko, D., Linder, S. H., **Rector, A.**, Jetelina, K. K., Boerwinkle, E., & de Oliveira Otto, M. (2022). Trends and Correlates of Breakthrough Infections With SARS-CoV-2. Frontiers in public health, 10, 856532. https://doi.org/10.3389/fpubh.2022.856532
+
+\smallskip  
+
+Tortolero, G. A., Otto, M. O., Ramphul, R., Yamal, J. M., **Rector, A.**, Brown, M., Peskin, M. F., Mofleh, D., & Boerwinkle, E. (2022). Examining Social Vulnerability and the Association With COVID-19 Incidence in Harris County, Texas. Frontiers in public health, 9, 798085. https://doi.org/10.3389/fpubh.2021.798085  
+
+<!-- # Manuscripts in Progress   -->
+
+<!-- Chen, W., **Rector, A.**, Guxens, M., Iñiguez, C.,  Swartz, M. D.,  Symanski, E., Ibarluzea, J., and Ambròs, A., Estarlich, M., Lertxundi, A., Riaño-Galán, I., Sunyer, J., Fernández-Somoano, A., Chauhan, S.P.J., Ish, J. & Whitworth, K.W. Susceptible windows of exposure to fine particulate matter exposure and fetal growth trajectories in the Spanish INMA (INfancia y Medio Ambiente) birth cohort[Manuscript submitted for publication - August 2022]. -->
+
+<!-- \smallskip   -->
+
+<!-- Otto, M.O., Brito, F., Tark, J.Y., Bakota, E., Yamal, J.M., Serbo, D., Sharma, S., Brown, M., Appana, S., **Rector, A.**, Case Growth Analysis to Inform Local Response to COVID-19 Epidemic in a Diverse U.S Community [Manuscript submitted for publication - July 2022]  -->
+
+<!-- \smallskip   -->
+
+<!-- **Rector, A.**,  Swartz, M. D., Iñiguez, C., Guxens, M., Ibarluzea, J., Symanski,E., Delclos, G., Bauer, C.X., & Whitworth, K.W. Mediation Analysis in a Distributed Lag Non-Linear Model Framework.   -->
+
+<!-- \smallskip   -->
+
+<!-- **Rector, A.**,  Whitworth, K.W., Bauer, C.X., Iñiguez, C., Guxens, M., Ibarluzea, J., Symanski,E., Delclos, G., & Swartz, M. D. Bayesian curve-fitting for the cross basis in the Distributed Lag Non-Linear Model Framework.   -->
+
+<!-- \smallskip   -->
+
+<!-- **Rector, A.**,  Swartz, M. D., Yamal, J.M., Otto, M.O., Marko, D., Banerjee, D., Monroy, J.A., White, R., Linder, S.,  Delclos, G., Bauer, C.X., & Whitworth, K.W. Susceptible windows of exposure to fine particulate matter exposure and COVID-19 in Houston, TX.   -->
+
+<!-- \smallskip   -->
+
+<!-- **Rector, A.**, Brito, F., Chen, J. Bauer, C.X., Yamal, J.M. Texas TSA COVID-19 ICU Bed Occupancy Predictive Modeling Performance Evaluation  -->
+
+
+# References  
+\begin{small}
+\emph{References available upon request}
+\end{small}
+# Acknowledgements  
+This CV was created using R version 4.2.1 with RStudio and adapted style documents from the R package *vitae*. Associated code can be found in my github repository, [AMR-CV]().
