@@ -12,6 +12,7 @@ email: "rectora42@gmail.com"
 github: rectora42
 linkedin: alison-rector
 headcolor: 2A67E0
+urlcolor: 2A67E0
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
   vitae::awesomecv
@@ -21,8 +22,8 @@ header-includes:
  # - \definecolor{headcolor}{2A67E0}
   #- \usepackage{changepage} 
   - \usepackage{scrextend}
-fontsize: 9pt
-linkcolor: blue
+fontsize: 8pt
+
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
@@ -80,8 +81,6 @@ read_xlsx("./AlisonRector_ResumeStuff.xlsx", sheet="Education")%>%
 \end{center}
 \end{scriptsize}
 <!-- • Probability and Distribution Theory • Statistical Inference • Stochastic Processes for Biostatisticians • Linear Models • Generalized Linear Models • Fundamentals of Data Analytics and Prediction • Practical Python Programing/Algorithms and Data Analysis • Machine Learning in Practice • Categorical Data Analysis • Epidemiology I, II, and III • Applied Linear Regression • Applied Multivariate Analysis for Biostatistics  •  Survival Analysis  •  Large Sample Theory  •  Introduction to Data Science  •  Data Science Computing  •  Spatio-Temporal Analysis  •  Statistical Method in Clinical Trials  •  -->
-
-
 # Selected Research Experience 
 
 ```{r}
@@ -96,7 +95,7 @@ read_xlsx("./AlisonRector_ResumeStuff.xlsx", sheet="Research2")%>%
         # nesting only the appropriate number of 'Details*' columns
         # if you don't do this, a bullet will appear with 'NA' 
         # for entries with fewer than max details
-  nest(Details=c(Details1, Details2, Details3))%>%
+  nest(Details=c(Details1, Details2, Details3, Details4, Details5))%>%
   vitae::detailed_entries(what = Institution,
                           when = Year,
                           where = Location,
@@ -144,7 +143,6 @@ read_xlsx("./AlisonRector_ResumeStuff.xlsx", sheet="Research2")%>%
 
 ```
 
-
 # Selected Work Experience  
 ```{r}
 #read in non research related work experience
@@ -156,10 +154,7 @@ read_xlsx("./AlisonRector_ResumeStuff.xlsx", sheet="Work")%>%
                           why = Details)
 ```
 
-
 # Publications and Presentations  
-
-
 ```{r eval=FALSE, include=FALSE, results='asis'}
 ## Can use this chunk to review publications - formatting looks nicer using PubMed 'cite' feature and copying citation
 
@@ -173,48 +168,43 @@ read_xlsx("./AlisonRector_ResumeStuff.xlsx", sheet="Work")%>%
 # ))
 
 ```
-**Rector, A.**, Whitworth, K. W., Iñiguez, C., Chauhan, S., Guxens, M., Ibarluzea, J., Ish, J.,  Symanski, E.,  Swartz, M. D. (2021). Knot placement in the Distributed Lag Nonlinear Models framework. In: *33rd Annual Conference of the International Society for Environmental Epidemiology*
-
-\smallskip  
-
-Whitworth, K. W., **Rector, A.**, Ish, J., Chauhan, S., Ibarluzea, J., Guxens, M., Swartz, M. D., Symanski, E., & Iñiguez, C. (2022). Identifying Sensitive Windows of Exposure to NO2 and Fetal Growth Trajectories in a Spanish Birth Cohort. Epidemiology (Cambridge, Mass.), 33(3), 318–324. https://doi.org/10.1097/EDE.0000000000001468
-
-\smallskip  
-
-Yamal, J. M., Appana, S., Wang, M., Leon-Novelo, L., Bakota, E., Ye, Y., Sharma, S., Morrison, A. C., Marko, D., Linder, S. H., **Rector, A.**, Jetelina, K. K., Boerwinkle, E., & de Oliveira Otto, M. (2022). Trends and Correlates of Breakthrough Infections With SARS-CoV-2. Frontiers in public health, 10, 856532. https://doi.org/10.3389/fpubh.2022.856532
-
-\smallskip  
-
+**Rector, A.**, Whitworth, K. W., Iñiguez, C., Chauhan, S., Guxens, M., Ibarluzea, J., Ish, J.,  Symanski, E.,  Swartz, M. D. (2021). Knot placement in the Distributed Lag Nonlinear Models framework. In: *33rd Annual Conference of the International Society for Environmental Epidemiology*  
+  
+Whitworth, K. W., **Rector, A.**, Ish, J., Chauhan, S., Ibarluzea, J., Guxens, M., Swartz, M. D., Symanski, E., & Iñiguez, C. (2022). Identifying Sensitive Windows of Exposure to NO2 and Fetal Growth Trajectories in a Spanish Birth Cohort. Epidemiology (Cambridge, Mass.), 33(3), 318–324. https://doi.org/10.1097/EDE.0000000000001468  
+  
+Yamal, J. M., Appana, S., Wang, M., Leon-Novelo, L., Bakota, E., Ye, Y., Sharma, S., Morrison, A. C., Marko, D., Linder, S. H., **Rector, A.**, Jetelina, K. K., Boerwinkle, E., & de Oliveira Otto, M. (2022). Trends and Correlates of Breakthrough Infections With SARS-CoV-2. Frontiers in public health, 10, 856532. https://doi.org/10.3389/fpubh.2022.856532  
+  
 Tortolero, G. A., Otto, M. O., Ramphul, R., Yamal, J. M., **Rector, A.**, Brown, M., Peskin, M. F., Mofleh, D., & Boerwinkle, E. (2022). Examining Social Vulnerability and the Association With COVID-19 Incidence in Harris County, Texas. Frontiers in public health, 9, 798085. https://doi.org/10.3389/fpubh.2021.798085  
 
-<!-- # Manuscripts in Progress   -->
+\newpage  
 
-<!-- Chen, W., **Rector, A.**, Guxens, M., Iñiguez, C.,  Swartz, M. D.,  Symanski, E., Ibarluzea, J., and Ambròs, A., Estarlich, M., Lertxundi, A., Riaño-Galán, I., Sunyer, J., Fernández-Somoano, A., Chauhan, S.P.J., Ish, J. & Whitworth, K.W. Susceptible windows of exposure to fine particulate matter exposure and fetal growth trajectories in the Spanish INMA (INfancia y Medio Ambiente) birth cohort[Manuscript submitted for publication - August 2022]. -->
+# Manuscripts in Progress
 
-<!-- \smallskip   -->
+Otto, M.O., Brito, F., Tark, J.Y., Bakota, E., Yamal, J.M., Serbo, D., Sharma, S., Brown, M., Appana, S., **Rector, A.**, Case Growth Analysis to Inform Local Response to COVID-19 Epidemic in a Diverse U.S Community, *Scientific Reports* [Accepted  Sept. 2022]
 
-<!-- Otto, M.O., Brito, F., Tark, J.Y., Bakota, E., Yamal, J.M., Serbo, D., Sharma, S., Brown, M., Appana, S., **Rector, A.**, Case Growth Analysis to Inform Local Response to COVID-19 Epidemic in a Diverse U.S Community [Manuscript submitted for publication - July 2022]  -->
+\smallskip
+Chen, W., **Rector, A.**, Guxens, M., Iñiguez, C.,  Swartz, M. D.,  Symanski, E., Ibarluzea, J., and Ambròs, A., Estarlich, M., Lertxundi, A., Riaño-Galán, I., Sunyer, J., Fernández-Somoano, A., Chauhan, S.P.J., Ish, J. & Whitworth, K.W. Susceptible windows of exposure to fine particulate matter exposure and fetal growth trajectories in the Spanish INMA (INfancia y Medio Ambiente) birth cohort, *Environmental Research* [Submitted August 2022].
 
-<!-- \smallskip   -->
-
-<!-- **Rector, A.**,  Swartz, M. D., Iñiguez, C., Guxens, M., Ibarluzea, J., Symanski,E., Delclos, G., Bauer, C.X., & Whitworth, K.W. Mediation Analysis in a Distributed Lag Non-Linear Model Framework.   -->
-
-<!-- \smallskip   -->
-
-<!-- **Rector, A.**,  Whitworth, K.W., Bauer, C.X., Iñiguez, C., Guxens, M., Ibarluzea, J., Symanski,E., Delclos, G., & Swartz, M. D. Bayesian curve-fitting for the cross basis in the Distributed Lag Non-Linear Model Framework.   -->
-
-<!-- \smallskip   -->
-
-<!-- **Rector, A.**,  Swartz, M. D., Yamal, J.M., Otto, M.O., Marko, D., Banerjee, D., Monroy, J.A., White, R., Linder, S.,  Delclos, G., Bauer, C.X., & Whitworth, K.W. Susceptible windows of exposure to fine particulate matter exposure and COVID-19 in Houston, TX.   -->
-
-<!-- \smallskip   -->
-
-<!-- **Rector, A.**, Brito, F., Chen, J. Bauer, C.X., Yamal, J.M. Texas TSA COVID-19 ICU Bed Occupancy Predictive Modeling Performance Evaluation  -->
+\smallskip
 
 
-# References  
-\begin{small}
-\emph{References available upon request}
-\end{small}
+**Rector, A.**,  Swartz, M. D., Iñiguez, C., Guxens, M., Ibarluzea, J., Symanski,E., Delclos, G., Bauer, C.X., & Whitworth, K.W. Mediation Analysis in a Distributed Lag Non-Linear Model Framework. [In Progress]
+
+\smallskip
+
+**Rector, A.**,  Whitworth, K.W., Bauer, C.X., Iñiguez, C., Guxens, M., Ibarluzea, J., Symanski,E., Delclos, G., & Swartz, M. D. Bayesian curve-fitting for the cross basis in the Distributed Lag Non-Linear Model Framework. [In Progress]
+
+\smallskip
+
+**Rector, A.**,  Swartz, M. D., Yamal, J.M., Otto, M.O., Marko, D., Banerjee, D., Monroy, J.A., White, R., Linder, S.,  Delclos, G., Bauer, C.X., & Whitworth, K.W. Susceptible windows of exposure to fine particulate matter exposure and COVID-19 in Houston, TX. [In Progress]
+
+\smallskip
+
+**Rector, A.**, Brito, F., Chen, J. Bauer, C.X., Yamal, J.M. Texas TSA COVID-19 ICU Bed Occupancy Predictive Modeling Performance Evaluation. [In Progress]
+
 # Acknowledgements  
-This CV was created using R version 4.2.1 with RStudio and adapted style documents from the R package *vitae*. Associated code can be found in my github repository([github.com/rectora42/AMR-ReferenceCode/tree/master/00-AMR-CV](https://github.com/rectora42/AMR-ReferenceCode/tree/master/00-AMR-CV)).
+This CV was created using R version 4.2.1 with RStudio and adapted style documents from the R package *vitae*. Associated code can be found in my github repository ([github.com/rectora42/AMR-ReferenceCode/tree/master/00-AMR-CV](https://github.com/rectora42/AMR-ReferenceCode/tree/master/00-AMR-CV)).  
+   
+\begin{small}
+\emph{\textbf{References available upon request}}
+\end{small}

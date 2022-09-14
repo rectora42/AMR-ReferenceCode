@@ -1,0 +1,80 @@
+---
+title: "01-AssessingNormality"
+author: "Alison Rector"
+date: "2022-08-29"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+TestScores_df <-data.frame(AP_SCORE = c(89, 89, 78, 85,  83,
+                                        96, 63, 78, 94,  78,
+                                        89, 87, 72, 74,  89,
+                                        76, 72, 81, 81,  85,
+                                        75, 85, 72, 100, 74,
+                                        83, 61, 81, 74,  55,
+                                        76, 91, 76, 80,  79,
+                                        67, 57, 76, 78,  93,
+                                        91, 83, 72, 67,  96,
+                                        85, 93, 70, 76,  83))
+TestScores_df<-TestScores_df%>%arrange(AP_SCORE)%>%
+  mutate(normal_vals= dnorm(AP_SCORE, mean = mean(AP_SCORE), sd = sd(AP_SCORE)) )%>%
+  mutate(normal_vals=normal_vals*AP_SCORE)
+TestScores_df$AP_SCORE
+```
+
+# Empirical Rule (68 - 95 - 99.7)  
+```{r}
+Test_Mean<-mean(TestScores_df$AP_SCORE)
+Test_SD<-sd(TestScores_df$AP_SCORE)
+
+# FIGURE OUT 1 SD Less than the mean 
+# 1 SD More than the mean
+EMP_68_LOW<-round(Test_Mean-Test_SD,4)
+EMP_68_UPPER<-round(Test_Mean+Test_SD, 4)
+c(EMP_68_LOW, EMP_68_UPPER)
+#################################################################
+# CHECK HOW MANY TEST SCORES BETWEEN EMP_68_LOW and EMP_68_UPPER
+# 36/50 are within 1 SD of Mean = 72% (close to 68%)
+############################################################
+EMP_95_LOW<-round(Test_Mean-2*Test_SD,4)
+EMP_95_UPPER<-round(Test_Mean+2*Test_SD, 4)
+c(EMP_95_LOW, EMP_95_UPPER)
+# 47/50 are within 2 SD of mean = 94% (close to 95%)
+EMP_99.7_LOW<-round(Test_Mean-3*Test_SD,4)
+EMP_99.7_UPPER<-round(Test_Mean+3*Test_SD, 4)
+c(EMP_99.7_LOW, EMP_99.7_UPPER)
+#50/50 are within 3 SD of mean = 100% (close to 99.7%)
+
+# CONCLUSION: FOllows the empirical rule
+```
+
+# Histogram of Scores  
+```{r}
+# calculate the mean and sd of TestScores
+
+Test_hist<-ggplot(TestScores_df)+
+                  geom_histogram(aes(x=AP_SCORE),color="black", fill="blue", bins=10)+
+                  labs(title="Histogram of AP Test Scores") 
+            
+# Test_normal<-ggplot(TestScores_df)+
+#         stat_function(fun = dnorm,
+#                   args = list(mean = mean(TestScores_df$AP_SCORE),
+#                               sd = sd(TestScores_df$AP_SCORE)))
+
+Test_hist
+```
+
+
+```{r}
+summary(TestScores_df$AP_SCORE)
+```
+
