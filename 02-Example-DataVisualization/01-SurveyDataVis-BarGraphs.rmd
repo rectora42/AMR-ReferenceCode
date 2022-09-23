@@ -1,0 +1,105 @@
+---
+title: "Survey Data Visualization"
+subtitle: "Bargraphs"
+author: "Alison Rector"
+date: "`r format(Sys.time(), '%B %Y')`"
+output: pdf_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, warning=FALSE, message=FALSE}
+# data manipulation related packages
+library(dplyr)
+library(lubridate)
+library(tidyverse)
+
+# visualization related packages
+library(ggplot2)
+library(ggtext)
+library(gridExtra)
+
+# Table related packages
+library(table1)
+library( janitor )#for tables 'adorn_'
+library(flextable)
+library(officer)
+require(kableExtra)
+library(data.table)
+
+```
+
+# Data Overview  
+
+Here we visualize simulated survey data at 2 timepoints. The data consists of simulated response data to 5 questions organized into 2 time points.  
+
+```{r inputdata}
+# READ IN SIMULATED DATA FOR EACH TIME POINT  
+SURV_T1<-readRDS("../Z-Data/Simulated_5Q_T1.rds")
+SURV_T2<-readRDS("../Z-Data/Simulated_5Q_T2.rds")
+```
+
+```{r combinedata}
+# combine Timepoint 1 and Timepoint 2 survey data, adding an .id column labelled as timepoint
+combined_data <- bind_rows(list(SURV_T1, SURV_T2), .id = "timepoint")
+# convert timepoint to a factor with "Baseline" and "18-Month" labels
+combined_data$timepoint<-factor(combined_data$timepoint,
+                                levels=c(1,2),
+                                labels=c("Baseline", "18-Month"))
+# convert " " to NA
+combined_data<-combined_data%>%mutate_if(is.character, list(~na_if(.," ")))
+
+
+```
+
+```{r gentableone}
+#create a table1 object summarizing survey responses to each question by timepoint
+first_table <- table1(~Q1+Q2+Q3+Q4+Q5|timepoint, 
+                      data = combined_data, 
+                      overall=FALSE, #suppress total column
+                      output="latex")
+#format table1object using flextable for nicer output
+t1flex(first_table) %>%
+  padding(padding = 0, part = "all") %>% 
+  valign(valign="top", part="header")%>%
+  autofit()%>% 
+  fit_to_width(7)%>%
+  fontsize(size=10, part="header")%>%
+  fontsize(size=10)%>%
+  add_header_lines("Summary of Survey Results by Timepoint")
+```
+
+```{r tallydata}
+# Pivot questions longer - finish this step
+combined_data_long<-pivot_longer()
+#Tally responses by question#
+
+response_allcoh_tally<-allcoh_domain%>%
+                        dplyr::select( -DomainNum)%>%
+                        group_by(cohort, timepoint,domain, question_group, question, response)%>%
+                        tally()%>%
+                        mutate(response_count=n)%>%
+                        dplyr::select(-n)
+allcoh_n<-allcoh_domain%>%
+          dplyr::select(-DomainNum)%>%
+          group_by(cohort, timepoint,domain, question_group, question)%>%
+          tally()
+allcoh_response_df<-merge(response_allcoh_tally, 
+                   allcoh_n,
+                   by=c("cohort", "timepoint", "domain", "question_group", "question"), 
+                   all.x=TRUE)
+allcoh_response_df_wide<-allcoh_response_df%>%
+  pivot_wider(names_from = response,
+              values_from = response_count)
+```
+
+
+```{r bargraphfunction}
+SURV_BG<-function(mydata, mytitle, myoutfile){
+  
+}
+```
+
