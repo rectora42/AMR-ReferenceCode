@@ -1,0 +1,21 @@
+---
+title: "Quadratic Regression Example"
+author: "Alison Rector"
+date: "2022-09-19"
+output: pdf_document
+---
+
+**A. Give the equation of the least-squares regression line. Define any variables you use.**
+
+$Y =$ number of balloons needed to fill a balloon box  
+
+$V =$ is the volume (V) of the box, where $V=(height)^3$ of the box  
+
+$Y = 45.008 + 10.809V$
+
+$Y = 45.008 + 10.809H^3$ 
+
+**B. Suppose the height of a box is 8ft, predict how many balloons are needed to fill the box.**  
+
+$Y = 45.008 + 10.809(8)^3\approx5579.219$ balloons 
+

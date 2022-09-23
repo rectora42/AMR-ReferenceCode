@@ -1,0 +1,45 @@
+---
+title: "Simulate Survey Data"
+subtitle: "5 Questions, 2 Timepoints"
+author: "Alison Rector"
+date: "2022-09-21"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+# Create a list of survey responses
+Survey_Responses_T1<-c("Strongly Agree", "Agree", "Disagree", "Disagree", "Strongly Disagree", "Do Not Have", " ")
+
+# Randomly sample from this list for 5 questions to create Time 1 dataset
+set.seed(576)
+SimulatedSurvey_T1 <- data.frame(Q1=sample(Survey_Responses_T1, 100, replace=TRUE),
+                                 Q2=sample(Survey_Responses_T1, 100, replace=TRUE),
+                                 Q3=sample(Survey_Responses_T1, 100, replace=TRUE),
+                                 Q4=sample(Survey_Responses_T1, 100, replace=TRUE),
+                                 Q5=sample(Survey_Responses_T1, 100, replace=TRUE))
+
+saveRDS(SimulatedSurvey_T1, "../Z-Data/Simulated_5Q_T1.rds")
+
+# Create a list of survey responses
+Survey_Responses_T2<-c("Strongly Agree", "Agree", "Strongly Agree", "Agree","Disagree",  "Strongly Disagree", "Do Not Have", " ")
+# Randomly sample from this list for 5 questions to create Time 2 dataset
+set.seed(726)
+SimulatedSurvey_T2 <- data.frame(Q1=sample(Survey_Responses_T2, 100, replace=TRUE),
+                                 Q2=sample(Survey_Responses_T2, 100, replace=TRUE),
+                                 Q3=sample(Survey_Responses_T2, 100, replace=TRUE),
+                                 Q4=sample(Survey_Responses_T2, 100, replace=TRUE),
+                                 Q5=sample(Survey_Responses_T2, 100, replace=TRUE))
+
+saveRDS(SimulatedSurvey_T2, "../Z-Data/Simulated_5Q_T2.rds")
+
+```
+
+```{r}
+
+```
+

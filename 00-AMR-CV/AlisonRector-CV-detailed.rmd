@@ -48,7 +48,7 @@ library(readxl)
 \begin{center}
 • Statistical Analysis • Spatio-temporal Models • Predictive Modeling • Advanced Data Visualization • Model Evaluation • Data Management • EHR Data •  \linebreak 
 \smallskip  
-• R • RStudio • Git • GitHub • Python • SQL • PostgreSQL • INLA  • SAS • Stata • \linebreak 
+• R • RStudio • Git • GitHub • Python • SQL • PostgreSQL • INLA  • SAS • Stata • Scala •  \linebreak 
 \smallskip  
 • Strategic Planning • Technical Leadership • Communication • Adaptability • Ability to Learn • Dissemination of Knowledge • \linebreak 
 \end{center}
@@ -109,11 +109,13 @@ read_xlsx("./AlisonRector_ResumeStuff.xlsx", sheet="Research2")%>%
 read_xlsx("./AlisonRector_ResumeStuff.xlsx", sheet="Research2")%>%
   #filter to 'Graduate Research Assistant' 
  dplyr::filter(Title=="Graduate Research Assistant" )%>%
-  # omit 'Details' from deatiled_entry - will add project specific details below
+  nest(Details=c(Details1, Details2, Details3))%>%
+  # omit 'Details' from detailed_entry, use Overview for why and  will add project specific details below
 vitae::detailed_entries(what= Institution, 
                      with = Title,
                      where = Location,
-                     when = Year)
+                     when = Year,
+                     why = Overview)
 ```
 
 ```{r uthgra}
