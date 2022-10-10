@@ -48,7 +48,7 @@ library(readxl)
 \begin{center}
 • Statistical Analysis • Spatio-temporal Models • Predictive Modeling • Advanced Data Visualization • Model Evaluation • Data Management • EHR Data •  \linebreak 
 \smallskip  
-• R • RStudio • Git • GitHub • Python • SQL • PostgreSQL • INLA  • SAS • Stata • Scala •  \linebreak 
+• R • RStudio • Git • GitHub • Python • SQL • PostgreSQL • INLA  • SAS • Stata •  \linebreak 
 \smallskip  
 • Strategic Planning • Technical Leadership • Communication • Adaptability • Ability to Learn • Dissemination of Knowledge • \linebreak 
 \end{center}

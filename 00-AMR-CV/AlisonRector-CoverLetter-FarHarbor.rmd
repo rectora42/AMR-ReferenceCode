@@ -1,0 +1,19 @@
+---
+author: Alison M. Rector
+
+subject: 'Senior Research Scientist [Education & Public Health] - Application'
+opening: To Whom It May Concern,
+closing: Best,
+signature: Alison M. Rector
+
+output: komaletter::komaletter
+---
+
+I am writing to apply for the Senior Research Scientist role at Far Harbor, LLC in Austin, TX. 
+I am a PhD candidate and Graduate Research Assistant at University of Texas Health Science Center at Houston ‑ School of Public Health in the Biostatistics and Data Science department. Additionally, I am a Research Assistant at Baylor College of Medicine, where I perform the statistical analyses for environmental epidemiology studies involving birth and child outcomes. I have experience cleaning, managing, and analyzing data in a variety of settings using a wide variety of analytic tools, including (but not limited to) R, RStudio, Git, GitHub, Python, SQL, and SAS. 
+
+I have had the good fortune to collaborate on teams with multiple statisticians and data scientists, as well as working independently on projects as the only statistician and data scientist. I also have had several opportunities to write reports for and present results to both technical and non-technical clients. I have worked on projects involving analysis applied to a variety of study designs including prospective population‑based cohort, longitudinal stepped-wedge cohort, and retrospective observational designs. I adapt and learn quickly in a variety of settings, and enjoy challenging environments to continue learning and growing in my technical abilities.
+
+
+I am excited about this role because I enjoy statistical analysis, especially when I am able to work on projects that involve communicating results of a statistical analysis to clients or teams who are able to benefit from the knowledge gained from the results. I enjoy analyzing and visualizing data, as well as collaborating with others to ensure that data is structured and cleaned appropriately for each analysis goal.  
+
